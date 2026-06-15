@@ -10,6 +10,7 @@ import UniStudents from './screens/UniStudents.jsx';
 import UniLecturers from './screens/UniLecturers.jsx'; // Make sure you save the UniLecturers component here  
 import UniFinance from './screens/UniFinance.jsx'; // Make sure you save the UniFinance component here
 import UniExaminations from './screens/UniExaminations.jsx'; // Make sure you save the UniExaminations component here 
+import UniCourses from './screens/UniCourses.jsx'; // Make sure you save the UniCourses component here
 
 import './App.css';
 
@@ -47,6 +48,7 @@ function AppRoutes() {
         <Route path="/lecturers-assignments" element={<UniLecturers activeTab="lecturers-assignments" />} />
         <Route path="/finance" element={<UniFinance activeTab="finance" />} />
         <Route path="/examinations" element={<UniExaminations activeTab="examinations" />} />
+        <Route path="/courses" element={<UniCourses activeTab="courses" />} />
         <Route path="/reports" element={
           <SectionPage title="Reports" description="Generate operational reports and review KPI snapshots for decision making." />
         } />

@@ -54,7 +54,7 @@ function gradeBadge(grade) {
   );
 }
 
-export function UniExaminations() {
+export default function UniExaminations() {
   const [tab, setTab] = useState('schedule');
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
@@ -328,4 +328,4 @@ export function UniExaminations() {
       )}
     </div>
   );
-} export default UniExaminations;
+} 

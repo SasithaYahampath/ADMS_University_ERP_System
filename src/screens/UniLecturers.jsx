@@ -61,7 +61,7 @@ function statusBadge(status) {
   );
 }
 
-export function UniLecturers({ activeTab }) {
+export default function UniLecturers({ activeTab }) {
   const [search, setSearch] = useState('');
   const [filterFaculty, setFilterFaculty] = useState('');
   const [tab, setTab] = useState(activeTab === 'lecturers-assignments' ? 'assignments' : 'list');
@@ -365,4 +365,3 @@ export function UniLecturers({ activeTab }) {
     </div>
   );
 }
-export default UniLecturers;

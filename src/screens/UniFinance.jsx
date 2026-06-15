@@ -43,7 +43,7 @@ const revenueByCategory = [
   { name: 'Other Income', value: 940000, color: '#10b981', pct: '8%' },
 ];
 
-function statusBadge(status) {
+function  statusBadge(status) {
   const map = {
     Paid: { bg: '#dcfce7', text: '#15803d', icon: <CheckCircle2 size={11} /> },
     Pending: { bg: '#fef9c3', text: '#a16207', icon: <Clock size={11} /> },
@@ -64,7 +64,7 @@ function fmt(n) {
   return `$${n}`;
 }
 
-export function UniFinance() {
+export default function UniFinance() {
   const [tab, setTab] = useState('dashboard');
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
@@ -409,4 +409,3 @@ export function UniFinance() {
     </div>
   );
 }
-export default UniFinance;
