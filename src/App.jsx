@@ -8,6 +8,7 @@ import Dashboard from './screens/Dashboard.jsx';
 import SectionPage from './screens/SectionPage.jsx';
 import UniStudents from './screens/UniStudents.jsx';
 import UniLecturers from './screens/UniLecturers.jsx'; // Make sure you save the UniLecturers component here  
+import UniFinance from './screens/UniFinance.jsx'; // Make sure you save the UniFinance component here
 
 import './App.css';
 
@@ -35,15 +36,15 @@ function AppRoutes() {
         <Route path="/hr" element={
           <SectionPage title="HR" description="Handle employee records, onboarding, attendance, and team administration." />
         } />
-        <Route path="/finance" element={
+        {/* <Route path="/finance" element={
           <SectionPage title="Finance" description="Review cash flow, budgets, expenses, and financial summaries for the ERP system." />
-        } />
+        } /> */}
         <Route path="/students-list" element={<UniStudents activeTab="students-list" />} />
         <Route path="/students-registration" element={<UniStudents activeTab="students-registration" />} />
         <Route path="/students-attendance" element={<UniStudents activeTab="students-attendance" />} />
         <Route path="/lecturers-list" element={<UniLecturers activeTab="lecturers-list" />} />
         <Route path="/lecturers-assignments" element={<UniLecturers activeTab="lecturers-assignments" />} />
-        
+        <Route path="/finance" element={<UniFinance activeTab="finance" />} />
         <Route path="/examinations" element={
           <SectionPage title="Examinations" description="Manage exam schedules, halls, invigilation, and the academic assessment calendar." />
         } />
