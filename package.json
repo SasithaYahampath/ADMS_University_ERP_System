@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/react": "^19.2.14",
@@ -34,3 +35,4 @@
     "vite": "^8.0.12"
   }
 }
+
