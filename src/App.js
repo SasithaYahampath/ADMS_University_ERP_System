@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Bell, CalendarDays, ChevronDown, MoonStar, Plus, Search } from 'lucide-react'
 import Sidebar from './components/Sidebar.jsx'
 import Dashboard from './screens/Dashboard.jsx'
 import SectionPage from './screens/SectionPage.jsx'
@@ -113,7 +114,59 @@ function AppLayout() {
       { className: 'app-main' },
       React.createElement(
         'header',
-        { className: 'app-topbar' },
+        { className: 'app-topbar app-topbar-desktop' },
+        React.createElement(
+          'div',
+          { className: 'topbar-left' },
+          React.createElement('h2', { className: 'topbar-brand' }, 'Dashboard'),
+          React.createElement(
+            'label',
+            { className: 'search-box' },
+            React.createElement(Search, { size: 16, className: 'search-icon' }),
+            React.createElement('input', {
+              type: 'search',
+              placeholder: 'Search students, courses, staff...',
+              'aria-label': 'Search students, courses, staff',
+            }),
+            React.createElement('span', { className: 'search-shortcut' }, '⌘K'),
+          ),
+        ),
+        React.createElement(
+          'div',
+          { className: 'topbar-actions' },
+          React.createElement(
+            'button',
+            { type: 'button', className: 'topbar-icon-button', 'aria-label': 'Calendar' },
+            React.createElement(CalendarDays, { size: 18 }),
+          ),
+          React.createElement(
+            'button',
+            { type: 'button', className: 'topbar-icon-button notification-button', 'aria-label': 'Notifications' },
+            React.createElement(Bell, { size: 18 }),
+            React.createElement('span', { className: 'notification-dot' }),
+          ),
+          React.createElement(
+            'button',
+            { type: 'button', className: 'topbar-icon-button', 'aria-label': 'Theme' },
+            React.createElement(MoonStar, { size: 18 }),
+          ),
+          React.createElement(
+            'button',
+            { type: 'button', className: 'quick-add-button' },
+            React.createElement(Plus, { size: 16 }),
+            React.createElement('span', null, 'Quick Add'),
+          ),
+          React.createElement(
+            'button',
+            { type: 'button', className: 'profile-button', 'aria-label': 'User menu' },
+            React.createElement('span', { className: 'profile-avatar' }, 'AD'),
+            React.createElement(ChevronDown, { size: 14 }),
+          ),
+        ),
+      ),
+      React.createElement(
+        'header',
+        { className: 'app-topbar app-topbar-mobile' },
         React.createElement(
           'button',
           {
