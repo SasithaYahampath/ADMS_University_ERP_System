@@ -7,6 +7,7 @@ import TopNav from './components/TopNav.jsx'; // Make sure you save the TopNav c
 import Dashboard from './screens/Dashboard.jsx';
 import SectionPage from './screens/SectionPage.jsx';
 import UniStudents from './screens/UniStudents.jsx';
+import UniLecturers from './screens/UniLecturers.jsx'; // Make sure you save the UniLecturers component here  
 
 import './App.css';
 
@@ -40,6 +41,9 @@ function AppRoutes() {
         <Route path="/students-list" element={<UniStudents activeTab="students-list" />} />
         <Route path="/students-registration" element={<UniStudents activeTab="students-registration" />} />
         <Route path="/students-attendance" element={<UniStudents activeTab="students-attendance" />} />
+        <Route path="/lecturers-list" element={<UniLecturers activeTab="lecturers-list" />} />
+        <Route path="/lecturers-assignments" element={<UniLecturers activeTab="lecturers-assignments" />} />
+        
         <Route path="/examinations" element={
           <SectionPage title="Examinations" description="Manage exam schedules, halls, invigilation, and the academic assessment calendar." />
         } />
