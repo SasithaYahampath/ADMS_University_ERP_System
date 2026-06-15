@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 // Correct imports based on your file structure
@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar.jsx';
 import TopNav from './components/TopNav.jsx'; // Make sure you save the TopNav component here
 import Dashboard from './screens/Dashboard.jsx';
 import SectionPage from './screens/SectionPage.jsx';
+import UniStudents from './screens/UniStudents.jsx';
 
 import './App.css';
 
@@ -36,9 +37,9 @@ function AppRoutes() {
         <Route path="/finance" element={
           <SectionPage title="Finance" description="Review cash flow, budgets, expenses, and financial summaries for the ERP system." />
         } />
-        <Route path="/students-registration" element={
-          <SectionPage title="Students Registration" description="Review recent applications, admissions progress, and student enrollment workflows." />
-        } />
+        <Route path="/students-list" element={<UniStudents activeTab="students-list" />} />
+        <Route path="/students-registration" element={<UniStudents activeTab="students-registration" />} />
+        <Route path="/students-attendance" element={<UniStudents activeTab="students-attendance" />} />
         <Route path="/examinations" element={
           <SectionPage title="Examinations" description="Manage exam schedules, halls, invigilation, and the academic assessment calendar." />
         } />
