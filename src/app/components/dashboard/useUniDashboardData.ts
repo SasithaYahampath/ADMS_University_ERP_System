@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { StudentsService }     from '../../services/students';
-import { LecturerService }     from '../../services/lecturer';
-import { CourseService }       from '../../services/course';
-import { FinanceService }      from '../../services/finance';
-import { ExaminationsService } from '../../services/examinations';
-import { ApiError }            from '../../lib/api';
+import { LecturerService }     from '../../../services/lecturer';
+import { CourseService }       from '../../../services/course';
+import { StudentsService }     from '../../../services/students';
+import { FinanceService }      from '../../../services/finance';
+import { ExaminationsService } from '../../../services/examinations';
+import { ApiError }            from '../../../lib/api';
 
 export function useUniDashboardData() {
   const [studentStats,   setStudentStats]   = useState<any>(null);
@@ -35,13 +35,13 @@ export function useUniDashboardData() {
       // remap overview keys (Total→TotalStudents, Active→ActiveStudents, etc.)
       // remap byFaculty field StudentCount→Count
       setStudentStats({
-        overview: {
-          TotalStudents:     stuStats.data.overview.Total      ?? stuStats.data.overview.TotalStudents,
-          ActiveStudents:    stuStats.data.overview.Active     ?? stuStats.data.overview.ActiveStudents,
-          PendingStudents:   stuStats.data.overview.Pending    ?? stuStats.data.overview.PendingStudents,
-          SuspendedStudents: stuStats.data.overview.Suspended  ?? stuStats.data.overview.SuspendedStudents,
-          AvgGPA:            stuStats.data.overview.AvgGPA,
-        },
+        // overview: {
+        //   TotalStudents:     stuStats.data.overview.Total      ?? stuStats.data.overview.TotalStudents,
+        //   ActiveStudents:    stuStats.data.overview.Active     ?? stuStats.data.overview.ActiveStudents,
+        //   PendingStudents:   stuStats.data.overview.Pending    ?? stuStats.data.overview.PendingStudents,
+        //   SuspendedStudents: stuStats.data.overview.Suspended  ?? stuStats.data.overview.SuspendedStudents,
+        //   AvgGPA:            stuStats.data.overview.AvgGPA,
+        // },
         byFaculty: stuStats.data.byFaculty.map((f: any) => ({
           Faculty: f.Faculty,
           Count:   f.StudentCount ?? f.Count, // remap StudentCount → Count
