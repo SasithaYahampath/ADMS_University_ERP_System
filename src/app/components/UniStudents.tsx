@@ -369,7 +369,7 @@ useEffect(() => {
   // userId is already in the verified JWT via useAuth()
   // DO NOT read from localStorage directly — use the auth context
   // NOTE: the field on AuthUser is `UserID` (capital I/D), not `userId`.
-  const userId = user?.UserID;  // already decoded from token in AuthContext
+  const userId = user?.userId;  // already decoded from token in AuthContext
 
   if (!userId) {
     setProfileError('Not authenticated.');
@@ -394,7 +394,7 @@ useEffect(() => {
     })
     .catch(e => setProfileError(e instanceof ApiError ? e.message : 'Failed to load profile.'))
     .finally(() => setLoadingProfile(false));
-}, [user?.UserID]);
+}, [user?.userId]);
 
   if (loadingProfile) {
     return (
