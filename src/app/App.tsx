@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { GraduationCap } from 'lucide-react';
 import { AuthProvider, useAuth } from '../context/AuthContext';
-import { LoginPage } from './components/LoginPage';
+import { LoginPage } from './Screens/LoginPage';
 import { UniSidebar } from './components/UniSidebar';
 import { UniTopNav } from './components/UniTopNav';
-import { UniDashboard } from './components/UniDashboard';
-import { UniStudents } from './components/UniStudents';
-import { UniLecturers } from './components/UniLecturers';
-import { UniCourses } from './components/UniCourses';
-import { UniExaminations } from './components/UniExaminations';
-import { UniFinance } from './components/UniFinance';
-import { UniSettings } from './components/UniSettings';
-import { UniUserManagement } from './components/UniUserManagement';
+import { UniDashboard } from './Screens/UniDashboard';
+import { UniStudents } from './Screens/UniStudents';
+import { UniLecturers } from './Screens/UniLecturers';
+import { UniCourses } from './Screens/UniCourses';
+import { UniExaminations } from './Screens/UniExaminations';
+import { UniFinance } from './Screens/UniFinance';
+import { UniSettings } from './Screens/UniSettings';
+import { UniUserManagement } from './Screens/UniUserManagement';
 {/* MARKER-MAKE-KIT-INVOKED */}
 {/* MARKER-MAKE-KIT-DISCOVERY-READ */}
 

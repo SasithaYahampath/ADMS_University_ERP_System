@@ -16,10 +16,10 @@ import {
 } from "../../services/course";
 import { ApiError } from "../../lib/api";
 import { useAuth } from "../../context/AuthContext";
-import { ErrorBanner } from "./courses/ErrorBanner";
-import { CourseCard } from "./courses/CourseCard";
-import { CourseDrawer } from "./courses/CourseDrawer";
-import { CreateCourseForm } from "./courses/CreateCourseForm";
+import { ErrorBanner } from "../components/courses/ErrorBanner";
+import { CourseCard } from "../components/courses/CourseCard";
+import { CourseDrawer } from "../components/courses/CourseDrawer";
+import { CreateCourseForm } from "../components/courses/CreateCourseForm";
 
 export function UniCourses() {
   const { user } = useAuth();

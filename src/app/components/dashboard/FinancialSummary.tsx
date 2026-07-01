@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { fmt } from '../dashboardUtils';
+import { fmt } from '../../../utils/dashboardUtils';
 
 interface FinancialSummaryProps {
   finance: any;

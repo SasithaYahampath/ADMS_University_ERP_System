@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { RefreshCw, Loader2, AlertCircle } from 'lucide-react';
-import { useUniDashboardData } from './dashboard/useUniDashboardData';
+import { useUniDashboardData } from '../components/dashboard/useUniDashboardData';
 import { FACULTY_COLORS } from '../../utils/dashboardUtils';
-import { PrimaryMetrics } from './dashboard/PrimaryMetrics';
-import { SecondaryMetrics } from './dashboard/SecondaryMetrics';
-import { RevenueChart } from './dashboard/RevenueChart';
-import { FacultyDistribution } from './dashboard/FacultyDistribution';
-import { FacultyBarChart } from './dashboard/FacultyBarChart';
-import { FinancialSummary } from './dashboard/FinancialSummary';
-import { RecentRegistrations } from './dashboard/RecentRegistrations';
-import { UpcomingExams } from './dashboard/UpcomingExams';
+import { PrimaryMetrics } from '../components/dashboard/PrimaryMetrics';
+import { SecondaryMetrics } from '../components/dashboard/SecondaryMetrics';
+import { RevenueChart } from '../components/dashboard/RevenueChart';
+import { FacultyDistribution } from '../components/dashboard/FacultyDistribution';
+import { FacultyBarChart } from '../components/dashboard/FacultyBarChart';
+import { FinancialSummary } from '../components/dashboard/FinancialSummary';
+import { RecentRegistrations } from '../components/dashboard/RecentRegistrations';
+import { UpcomingExams } from '../components/dashboard/UpcomingExams';
 
 interface UniDashboardProps { onNavigate: (view: string) => void; }
 
