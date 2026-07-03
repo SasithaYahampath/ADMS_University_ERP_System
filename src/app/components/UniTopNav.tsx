@@ -77,7 +77,6 @@ export function UniTopNav({ onMenuToggle, activeView, isDark, onToggleDark }: Un
       <div className={`flex-1 max-w-md mx-4 hidden md:flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200 ${searchFocused ? 'ring-2' : ''}`}
         style={{
           background: 'var(--input-background)',
-          ringColor: 'var(--primary)',
           boxShadow: searchFocused ? '0 0 0 2px rgba(59,91,219,0.2)' : 'none',
         }}>
         <Search size={14} className="text-muted-foreground shrink-0" />

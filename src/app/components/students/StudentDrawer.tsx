@@ -3,7 +3,6 @@ import { X } from 'lucide-react';
 import { StudentsService, type Student, type AttendanceRecord } from '../../../services/students';
 import { ExaminationsService, type StudentResult } from '../../../services/examinations';
 import { ApiError } from '../../../lib/api';
-import { StudentProfileContent } from '../UniStudents';
 
 export function StudentDrawer({ student, onClose }: { student: Student; onClose: () => void }) {
   const [attendance, setAttendance]           = useState<AttendanceRecord[]>([]);
@@ -44,6 +43,127 @@ export function StudentDrawer({ student, onClose }: { student: Student; onClose:
           />
         </div>
       </div>
+    </div>
+  );
+}
+
+function formatDate(value: string | null): string {
+  if (!value) return '-';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '-';
+  return date.toLocaleDateString();
+}
+
+export function StudentProfileContent({
+  student,
+  attendance,
+  loadingAtt,
+  results,
+  loadingResults,
+  resultsError,
+}: {
+  student: Student;
+  attendance: AttendanceRecord[];
+  loadingAtt: boolean;
+  results: StudentResult[];
+  loadingResults: boolean;
+  resultsError: string;
+}) {
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <div>
+          <div className="text-muted-foreground">Full Name</div>
+          <div className="text-foreground font-medium">{student.FullName}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Student ID</div>
+          <div className="text-foreground font-mono">{student.StudentID}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Faculty</div>
+          <div className="text-foreground">{student.Faculty}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Program</div>
+          <div className="text-foreground">{student.Program ?? '-'}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Level</div>
+          <div className="text-foreground">{student.Level}L</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">GPA</div>
+          <div className="text-foreground font-semibold">{Number(student.GPA).toFixed(2)}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Email</div>
+          <div className="text-foreground">{student.Email}</div>
+        </div>
+        <div>
+          <div className="text-muted-foreground">Enrolled</div>
+          <div className="text-foreground">{formatDate(student.EnrolledDate)}</div>
+        </div>
+      </div>
+
+      <section className="space-y-3">
+        <h4 className="text-foreground text-sm font-semibold">Attendance</h4>
+        {loadingAtt ? (
+          <div className="text-sm text-muted-foreground">Loading attendance...</div>
+        ) : attendance.length === 0 ? (
+          <div className="text-sm text-muted-foreground">No attendance records.</div>
+        ) : (
+          <div className="space-y-2">
+            {attendance.map((row) => (
+              <div
+                key={row.CourseCode}
+                className="rounded-lg border p-3"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div>
+                    <div className="text-sm text-foreground font-medium">{row.CourseTitle}</div>
+                    <div className="text-xs text-muted-foreground">{row.CourseCode}</div>
+                  </div>
+                  <div className="text-sm text-foreground font-semibold">{row.AttendanceRate}%</div>
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  Present {row.Present} / {row.TotalSessions} sessions
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="space-y-3">
+        <h4 className="text-foreground text-sm font-semibold">Exam Results</h4>
+        {loadingResults ? (
+          <div className="text-sm text-muted-foreground">Loading exam results...</div>
+        ) : resultsError ? (
+          <div className="text-sm text-red-600">{resultsError}</div>
+        ) : results.length === 0 ? (
+          <div className="text-sm text-muted-foreground">No exam results.</div>
+        ) : (
+          <div className="space-y-2">
+            {results.map((result) => (
+              <div
+                key={result.ResultID}
+                className="rounded-lg border p-3"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-sm text-foreground font-medium">{result.CourseTitle}</div>
+                  <div className="text-sm font-semibold text-foreground">{result.Grade}</div>
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  Score {result.Score} | GPA Point {result.GpaPoint.toFixed(1)} | {formatDate(result.ExamDate)}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }
