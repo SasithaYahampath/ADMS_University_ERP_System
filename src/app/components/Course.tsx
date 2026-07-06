@@ -1,3 +1,10 @@
+import { useState } from "react";
+import { CourseService ,Course} from "../../services/course";
+import { ErrorBanner } from "./courses/ErrorBanner";
+import { ApiError } from "../../lib/api";
+import { Plus,X,Loader2 } from "lucide-react";
+
+
 // ─── Enroll Student Modal ─────────────────────────────────────────────────────
 
 function EnrollStudentModal({ course, onClose, onEnrolled }: {
